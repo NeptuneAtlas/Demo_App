@@ -10,12 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.demo_meet1.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
  EditText editText;
 private EditText editEmail;
 private Button confirmButton;
 
 String output;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,10 @@ String output;
 
         editText.addTextChangedListener(loginTextWatcher);
         editEmail.addTextChangedListener(loginTextWatcher);
+
+
+
+
     }
 
 
