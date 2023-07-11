@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,31 +16,45 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends ArrayAdapter<Events> {
+public class ListAdapter extends BaseAdapter {
+Context context;
+String[] eName;
+String[] eDate;
+int[] eImages;
+LayoutInflater inflater;
+    public ListAdapter(Context ctx, String[] name, String[] date, int[] ImageId){
+    this.context = ctx;
+    this.eName = name;
+    this.eDate = date;
+    this.eImages = ImageId;
+    inflater = LayoutInflater.from(ctx);
 
-public ListAdapter(Context context, ArrayList<Events> userArrayList){
-    super(context,R.layout.list_view, userArrayList);
 
-}
-
-    @NonNull
+    }
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-    Events events = getItem(position);
-
-    if(convertView == null){
-        convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_view, parent, false);
+    public int getCount() {
+        return eName.length;
     }
 
-        ImageView imageView = convertView.findViewById(R.id.eventIcon);
-        TextView userName= convertView.findViewById(R.id.textView4);
-        EditText timeDate = convertView.findViewById(R.id.editTextTime);
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
 
-        imageView.setImageResource(events.ImageId);
-        userName.setText(events.name);
-        timeDate.setText(events.date);
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-        return super.getView(position, convertView, parent);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        convertView = inflater.inflate(R.layout.list_view, null);
+        TextView txtView = (TextView) convertView.findViewById(R.id.textView4);
+        TextView  edtText = (TextView ) convertView.findViewById(R.id.editTextTime);
+        ImageView eventImg = (ImageView) convertView.findViewById(R.id.eventIcon);
+        txtView.setText(eName[position]);
+        edtText.setText(eDate[position]); //maybe get rid of this
+        eventImg.setImageResource(eImages[position]);
+        return convertView;
     }
 }
