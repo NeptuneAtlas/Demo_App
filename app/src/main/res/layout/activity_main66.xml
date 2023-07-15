@@ -7,6 +7,17 @@
     tools:context=".MainActivity66">
 
 
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1220sp"
+        android:background="@drawable/wave"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="384dp"

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.demo_meet1.databinding.ActivityMainBinding;
+//import com.example.demo_meet1.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
  EditText editText;
